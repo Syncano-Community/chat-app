@@ -33,7 +33,9 @@
         }
       }
 
-      sendMessageButton.addEventListener('click', sendMessage);
+      sendMessageButton.addEventListener('click', function() { sendMessage(username) }, false);
+      sendMessageButtonMobile.addEventListener('click', function() { sendMessage(username) }, false);
+  
       messageContent.onkeypress = function(event) {
         if (event.charCode === 13) {
           sendMessage(username);
