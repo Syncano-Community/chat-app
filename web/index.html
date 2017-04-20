@@ -4,7 +4,7 @@
   <link rel="stylesheet" href="stylesheets/index.css" type="text/css" />
   <script src="./js/syncano-client.min.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    window.onload = function() {
       var s = new SyncanoClient('INSTANCE_NAME');
       var username = 'User ' + (Date.now()).toString().slice(-3);
       var messageContent = document.getElementById('messageContent');
@@ -35,7 +35,7 @@
 
       sendMessageButton.addEventListener('click', function() { sendMessage(username) }, false);
       sendMessageButtonMobile.addEventListener('click', function() { sendMessage(username) }, false);
-  
+
       messageContent.onkeypress = function(event) {
         if (event.charCode === 13) {
           sendMessage(username);
@@ -46,7 +46,7 @@
       s.subscribe('chat/realtime', { token: 'token' }, message => {
         handleMessage(message);
       });
-    });
+    };
   </script>
 </head>
 <body>
