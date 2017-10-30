@@ -25,7 +25,7 @@
         lastMessage.scrollIntoView({ behavior: 'smooth' });
       }
 
-      function sendMessage(username) {
+      function sendMessage() {
         var text = messageContent.value;
         if (text != '') {
           s.post('chat/send_message', { text, username, token: 'token' });
@@ -33,12 +33,12 @@
         }
       }
 
-      sendMessageButton.addEventListener('click', function() { sendMessage(username) }, false);
-      sendMessageButtonMobile.addEventListener('click', function() { sendMessage(username) }, false);
+      sendMessageButton.addEventListener('click', function() { sendMessage() }, false);
+      sendMessageButtonMobile.addEventListener('click', function() { sendMessage() }, false);
 
       messageContent.onkeypress = function(event) {
         if (event.charCode === 13) {
-          sendMessage(username);
+          sendMessage();
           return false;
         }
       };
